@@ -1,0 +1,181 @@
+.wall-card {
+  border: 2px solid var(--border);
+  border-radius: 28px;
+  padding: 1.5rem;
+  background: var(--card-bg);
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* WishBoard */
+
+.wish-board {
+  position: relative;
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  background: var(--sky-bg);
+  overflow: hidden;
+}
+
+.sky {
+  position: relative;
+  height: 60px;
+}
+
+.star {
+  position: absolute;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.star-0 {
+  top: 10px;
+  left: 15%;
+}
+.star-1 {
+  top: 25px;
+  left: 45%;
+  font-size: 0.6rem;
+}
+.star-2 {
+  top: 8px;
+  left: 70%;
+}
+.star-3 {
+  top: 35px;
+  left: 85%;
+  font-size: 0.6rem;
+}
+.star-4 {
+  top: 18px;
+  left: 30%;
+  font-size: 0.6rem;
+}
+.star-5 {
+  top: 5px;
+  left: 55%;
+  font-size: 0.6rem;
+}
+
+.skyline {
+  height: 24px;
+  background: var(--border);
+  clip-path: polygon(
+    0 100%,
+    0 60%,
+    8% 60%,
+    8% 30%,
+    16% 30%,
+    16% 60%,
+    30% 60%,
+    30% 10%,
+    38% 10%,
+    38% 60%,
+    52% 60%,
+    52% 40%,
+    60% 40%,
+    60% 60%,
+    74% 60%,
+    74% 20%,
+    82% 20%,
+    82% 60%,
+    92% 60%,
+    92% 45%,
+    100% 45%,
+    100% 100%
+  );
+}
+
+.wish-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 1rem 1rem;
+  max-height: 260px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wish-status {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 1rem 0;
+}
+
+.wish-error {
+  color: var(--error);
+}
+
+.wish {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.wish-message {
+  color: var(--text);
+}
+
+.wish-name {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  align-self: flex-end;
+}
+
+/* WishForm */
+
+.wish-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.wish-input {
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  background: var(--sky-bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.wish-input-name {
+  flex: 1 1 90px;
+}
+
+.wish-input-message {
+  flex: 3 1 200px;
+}
+
+.wish-submit {
+  flex: 0 0 auto;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.wish-submit:disabled,
+.wish-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.wish-form-error {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--error);
+  font-size: 0.9rem;
+}
