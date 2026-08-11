@@ -1,0 +1,5 @@
+FROM public.ecr.aws/lambda/nodejs:20
+COPY package*.json ./
+RUN npm install --omit=dev
+COPY src ./src
+CMD ["src/handler.handler"]
