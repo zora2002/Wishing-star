@@ -59,7 +59,20 @@ jobs:
             --function-name "${{ vars.LAMBDA_FUNCTION_NAME }}" \
             --image-uri "${{ steps.ecr-login.outputs.registry }}/${{ vars.ECR_REPOSITORY }}:${{ github.sha }}"
 
-      - name: 等待 Lambda 部署完成
+      - name: 等待影像更新完成
+        run: |
+          aws lambda wait function-updated \
+            --function-name "${{ vars.LAMBDA_FUNCTION_NAME }}"
+
+      # update-function-configuration 會「整個覆蓋」環境變數，
+      # 所以這裡把 TABLE_NAME 也一起帶上，不然它會被洗掉
+      - name: 更新 Lambda 環境變數（CORS 允許來源等設定）
+        run: |
+          aws lambda update-function-configuration \
+            --function-name "${{ vars.LAMBDA_FUNCTION_NAME }}" \
+            --environment "Variables={TABLE_NAME=${{ vars.TABLE_NAME }},ALLOWED_ORIGIN=${{ vars.ALLOWED_ORIGIN }}}"
+
+      - name: 等待環境變數更新完成
         run: |
           aws lambda wait function-updated \
             --function-name "${{ vars.LAMBDA_FUNCTION_NAME }}"
