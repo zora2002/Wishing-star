@@ -26,6 +26,10 @@ jobs:
       - name: Checkout 程式碼
         uses: actions/checkout@v4
 
+      - name: 除錯：確認實際的 job_workflow_ref
+        run: |
+          echo "github.job_workflow_ref = ${{ github.job_workflow_ref }}"
+
       - name: 設定 Node.js
         uses: actions/setup-node@v4
         with:
@@ -40,6 +44,15 @@ jobs:
         run: npm run build
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
+
+      - name: 除錯：確認 job_workflow_ref 實際值（不印出完整 token）
+        run: |
+          TOKEN=$(curl -sS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=sts.amazonaws.com" | jq -r '.value')
+          PAYLOAD=$(echo -n "$TOKEN" | cut -d'.' -f2 | tr '_-' '/+')
+          MOD=$(( ${#PAYLOAD} % 4 ))
+          if [ $MOD -ne 0 ]; then PAYLOAD="$PAYLOAD$(printf '=%.0s' $(seq 1 $((4-MOD))))"; fi
+          echo "$PAYLOAD" | base64 -d | jq '{job_workflow_ref, sub}'
 
       - name: 設定 AWS 憑證（OIDC，免存金鑰）
         uses: aws-actions/configure-aws-credentials@v4
