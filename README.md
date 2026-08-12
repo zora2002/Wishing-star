@@ -51,16 +51,24 @@ flowchart TD
 - 前後端各自獨立的 workflow，用 `paths` 過濾，只有相關資料夾有變動才觸發
 - 用 `aws-actions/configure-aws-credentials` 搭配 IAM OIDC 身份提供者，**不儲存任何長期 Access Key**
 - IAM 信任政策精準限定到「這個 repo、這個 workflow 檔案、main 分支」才能取得部署權限
-- GitHub Actions 需要的 Secret：
-  - `AWS_DEPLOY_ROLE_ARN`：要 assume 的部署用 IAM Role ARN，OIDC 換到臨時憑證後用這個角色操作 AWS 資源
-  - `S3_BUCKET`：前端靜態網站託管的 S3 bucket 名稱，`aws s3 sync` 會同步到這裡
-- GitHub Actions 需要的 Variables：
-  - `VITE_API_URL`：build 前端時注入的正式環境 API 網址，讓打包後的靜態頁面知道要打哪個 API Gateway
-  - `CLOUDFRONT_DISTRIBUTION_ID`：前端部署完後要清快取的 CloudFront distribution ID
-  - `ECR_REPOSITORY`：後端 Docker 映像要推送到的 ECR repository 名稱
-  - `LAMBDA_FUNCTION_NAME`：部署後要更新映像／環境變數的 Lambda function 名稱
-  - `TABLE_NAME`：Lambda 環境變數，指定要連線的正式 DynamoDB 資料表名稱
-  - `ALLOWED_ORIGIN`：Lambda 環境變數，CORS 只允許這個來源網域的請求
+
+GitHub Actions 需要的 Secrets：
+
+| Secret | 用途 |
+|---|---|
+| `AWS_DEPLOY_ROLE_ARN` | 要 assume 的部署用 IAM Role ARN，OIDC 換到臨時憑證後用這個角色操作 AWS 資源 |
+| `S3_BUCKET` | 前端靜態網站託管的 S3 bucket 名稱，`aws s3 sync` 會同步到這裡 |
+
+GitHub Actions 需要的 Variables：
+
+| Variable | 用途 |
+|---|---|
+| `VITE_API_URL` | build 前端時注入的正式環境 API 網址，讓打包後的靜態頁面知道要打哪個 API Gateway |
+| `CLOUDFRONT_DISTRIBUTION_ID` | 前端部署完後要清快取的 CloudFront distribution ID |
+| `ECR_REPOSITORY` | 後端 Docker 映像要推送到的 ECR repository 名稱 |
+| `LAMBDA_FUNCTION_NAME` | 部署後要更新映像／環境變數的 Lambda function 名稱 |
+| `TABLE_NAME` | Lambda 環境變數，指定要連線的正式 DynamoDB 資料表名稱 |
+| `ALLOWED_ORIGIN` | Lambda 環境變數，CORS 只允許這個來源網域的請求 |
 
 ## 資料夾結構
 
