@@ -71,7 +71,7 @@ curl -X POST http://localhost:4000/api/wishes \
 curl http://localhost:4000/api/wishes
 ```
 
-或是直接打開瀏覽器看 `http://localhost:8001`，點進 `WishingWallWishes` 資料表，應該會看到你剛剛新增的資料。
+或是直接打開瀏覽器看 `http://localhost:8001`，點進 `WishingStarWishes` 資料表，應該會看到你剛剛新增的資料。
 
 ## 從 React 專案呼叫這個 API
 

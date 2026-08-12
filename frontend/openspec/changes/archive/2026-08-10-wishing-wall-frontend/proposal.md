@@ -14,7 +14,7 @@
 ## Capabilities
 
 ### New Capabilities
-- `wishing-wall-ui`: 許願牆前端頁面 — 顯示願望列表、提交新願望的表單，串接 `/api/wishes` GET/POST
+- `wishing-star-ui`: 前端頁面 — 顯示願望列表、提交新願望的表單，串接 `/api/wishes` GET/POST
 
 ### Modified Capabilities
 (無，後端 API 行為不變)

@@ -1,7 +1,7 @@
 services:
   dynamodb-local:
     image: amazon/dynamodb-local:latest
-    container_name: wishing-wall-dynamodb
+    container_name: wishing-star-dynamodb
     ports:
       - "8000:8000"
     command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
@@ -13,7 +13,7 @@ services:
   # 開發時很好用，正式環境不需要它
   dynamodb-admin:
     image: aaronshaf/dynamodb-admin
-    container_name: wishing-wall-dynamodb-admin
+    container_name: wishing-star-dynamodb-admin
     ports:
       - "8001:8001"
     environment:

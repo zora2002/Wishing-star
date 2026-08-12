@@ -1,11 +1,11 @@
-# 許願牆（Wishing Wall）
+# Wishing Star
 
 一個許願牆專案，包含 React 前端和 Express + DynamoDB 後端 API。
 
 ## 資料夾結構
 
 ```
-wishing-wall/
+wishing-star/
 ├── frontend/     ← React 專案
 ├── backend/      ← Express API（本機開發用 DynamoDB Local，之後部署到 AWS Lambda + DynamoDB）
 └── README.md     ← 這份文件
