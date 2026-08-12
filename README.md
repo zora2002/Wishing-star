@@ -21,15 +21,6 @@
 | CI/CD | GitHub Actions + AWS OIDC（無存放金鑰） |
 | 本機開發 | Docker Compose（DynamoDB Local + 資料檢視 GUI） |
 
-## 資料夾結構
-
-```
-wishing-star/
-├── frontend/     ← 前端
-├── backend/      ← 後端
-└── README.md     ← 這份文件
-```
-
 ## 上雲架構 (AWS)
 
 ```mermaid
@@ -71,9 +62,17 @@ flowchart TD
   - `TABLE_NAME`：Lambda 環境變數，指定要連線的正式 DynamoDB 資料表名稱
   - `ALLOWED_ORIGIN`：Lambda 環境變數，CORS 只允許這個來源網域的請求
 
+## 資料夾結構
+
+```
+wishing-star/
+├── .github/workflows/  ← CI/CD（deploy-frontend.yml / deploy-backend.yml）
+├── frontend/     ← 前端
+├── backend/      ← 後端
+└── README.md     ← 這份文件
+```
 
 ## 本機開發
-
 
 1. **後端**：進入 `backend/` 資料夾，依照 `backend/README.md` 的步驟啟動
 2. **前端**：進入 `frontend/` 資料夾，依照 `frontend/README.md`的步驟啟動
