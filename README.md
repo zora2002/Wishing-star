@@ -26,10 +26,10 @@
 ```mermaid
 flowchart TD
     User[使用者瀏覽器] --> CF[CloudFront CDN]
-    CF -->|靜態資源| S3[S3<br/>React 靜態網站]
-    CF -->|/api/* 動態請求| APIGW[API Gateway<br/>REST API]
-    APIGW --> Lambda[Lambda<br/>Docker 容器映像]
-    Lambda --> DDB[(DynamoDB<br/>WishingStarWishes)]
+    CF -->|靜態資源| S3[S3<br/> React 靜態網站]
+    CF -->|/api/* 動態請求| APIGW[API Gateway<br/> REST API]
+    APIGW --> Lambda[Lambda<br/> Docker 容器映像]
+    Lambda --> DDB[(DynamoDB<br/> WishingStarWishes)]
 ```
 
 - **CloudFront + S3（OAC）**：靜態網站託管，S3 本身不公開，只信任 CloudFront 存取
