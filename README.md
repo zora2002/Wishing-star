@@ -12,7 +12,7 @@
 
 ## Demo Link
 
-[Make a Wish !](d21i9ty2g0cyeb.cloudfront.net)
+[Make a Wish !](https://d21i9ty2g0cyeb.cloudfront.net)
 
 <img src="./Demo.png" width="600" />
 
