@@ -28,11 +28,11 @@ router.post("/", async (req, res) => {
   if (!message || !message.trim()) {
     return res.status(400).json({ error: "願望內容不能是空的" });
   }
-  if (message.length > 200) {
-    return res.status(400).json({ error: "願望內容太長了（最多 200 字）" });
+  if (message.length > 20) {
+    return res.status(400).json({ error: "願望內容太長了（最多 20 字）" });
   }
-  if (name && name.trim().length > 10) {
-    return res.status(400).json({ error: "姓名太長了（最多 10 字）" });
+  if (name && name.trim().length > 6) {
+    return res.status(400).json({ error: "姓名太長了（最多 6 字）" });
   }
 
   const wish = {
