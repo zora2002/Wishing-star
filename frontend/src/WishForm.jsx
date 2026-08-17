@@ -3,8 +3,28 @@ import { createWish } from "./api";
 
 const MAX_MESSAGE_LENGTH = 200;
 const MAX_NAME_LENGTH = 10;
+export const BURST_DURATION_MS = 2400;
 
-export default function WishForm({ onCreated }) {
+function PaperPlaneIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="26"
+      height="26"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M21 3 L3 10.5 L10.5 13.5 L13.5 21 Z" />
+      <path d="M21 3 L10.5 13.5" />
+    </svg>
+  );
+}
+
+export default function WishForm({ onCreated, onBurst }) {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -38,11 +58,14 @@ export default function WishForm({ onCreated }) {
     try {
       const wish = await createWish({ name, message });
       onCreated(wish);
-      setName("");
-      setMessage("");
+      onBurst?.();
+      setTimeout(() => {
+        setName("");
+        setMessage("");
+        setSubmitting(false);
+      }, BURST_DURATION_MS);
     } catch (err) {
       setError(err.message);
-    } finally {
       setSubmitting(false);
     }
   }
@@ -51,24 +74,31 @@ export default function WishForm({ onCreated }) {
     <form className="wish-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        disabled={submitting}
-        maxLength={MAX_NAME_LENGTH}
-        className="wish-input wish-input-name"
-      />
-      <input
-        type="text"
-        placeholder="wish"
+        placeholder="make a wish"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         disabled={submitting}
         className="wish-input wish-input-message"
       />
-      <button type="submit" disabled={submitting} className="wish-submit">
-        enter
-      </button>
+      <div className="wish-form-row">
+        <input
+          type="text"
+          placeholder="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          disabled={submitting}
+          maxLength={MAX_NAME_LENGTH}
+          className="wish-input wish-input-name"
+        />
+        <button
+          type="submit"
+          disabled={submitting}
+          className="wish-submit"
+          aria-label="送出願望"
+        >
+          <PaperPlaneIcon />
+        </button>
+      </div>
       {error && <p className="wish-form-error">{error}</p>}
     </form>
   );

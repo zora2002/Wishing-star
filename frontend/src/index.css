@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/jf-openhuninn-1.1@1.1/font/jf-openhuninn-1.1.css");
+
 :root {
   --bg: #1a1a2e;
   --card-bg: #232342;
@@ -5,7 +7,7 @@
   --border: #3a3a5c;
   --text: #f4f2ff;
   --text-muted: #b8b5d6;
-  --accent: #ffd166;
+  --accent: #ffe9b8;
   --error: #ff6b6b;
 
   font: 16px/1.5 system-ui, "Segoe UI", "PingFang TC", "Microsoft JhengHei",
@@ -20,15 +22,10 @@
 body {
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 3rem 1rem;
   background: var(--bg);
   color: var(--text);
 }
 
 #root {
   width: 100%;
-  max-width: 480px;
 }
