@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { createWish } from "./api";
 
-const MAX_MESSAGE_LENGTH = 200;
-const MAX_NAME_LENGTH = 10;
+const MAX_MESSAGE_LENGTH = 20;
+const MAX_NAME_LENGTH = 6;
 export const BURST_DURATION_MS = 2400;
 
 function PaperPlaneIcon() {
@@ -78,6 +78,7 @@ export default function WishForm({ onCreated, onBurst }) {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         disabled={submitting}
+        maxLength={MAX_MESSAGE_LENGTH}
         className="wish-input wish-input-message"
       />
       <div className="wish-form-row">
