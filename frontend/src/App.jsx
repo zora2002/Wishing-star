@@ -79,6 +79,14 @@ function App() {
         />
       </div>
       <WishForm onCreated={handleCreated} onBurst={handleBurst} />
+      <a
+        href="https://github.com/zora2002/Wishing-star"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="github-link"
+      >
+        GitHub@zora2002
+      </a>
     </div>
   );
 }

@@ -268,3 +268,18 @@
   font-size: 0.85rem;
   text-align: center;
 }
+
+/* Footer */
+
+.github-link {
+  margin-top: 84px;
+  font-family: "jf-openhuninn-1.1", sans-serif;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.github-link:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
