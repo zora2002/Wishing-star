@@ -1,0 +1,44 @@
+:root {
+  /* Night sky */
+  --sky-top: #133447;
+  --sky-mid: #0e2a36;
+  --sky-bottom: #14384a;
+  --sky-deep: #0a2233;
+  --sky-page-bg-start: #133447;
+  --sky-page-bg-end: #04121a;
+  --skyline-fill: #081722;
+  --window-glow: #d8dde2;
+  --moon-fill: #f6dd8e;
+  --moon-shadow: #0a2233;
+  --spark: #ffdf9c;
+
+  /* Sticky note */
+  --note-bg: #fdf3c7;
+  --note-ink: #3a2f1a;
+  --note-rule: rgba(58, 47, 26, 0.35);
+  --note-accent: #b8860b;
+
+  /* Wish burst */
+  --burst-glow: #ffe9b8;
+
+  /* Card / canvas */
+  --canvas-bg: #f4efe6;
+
+  /* Star palette (randomized per star) */
+  --star-1: #fac2dc;
+  --star-2: #fbc2c1;
+  --star-3: #fbc6ae;
+  --star-4: #f1df89;
+  --star-5: #e2dd8d;
+  --star-6: #ebd07b;
+  --star-7: #ecd09e;
+  --star-8: #e7dcbd;
+  --star-9: #dcd4bb;
+  --star-10: #bce1b3;
+  --star-11: #a5e4cd;
+  --star-12: #aedfe1;
+  --star-13: #b3dbef;
+  --star-14: #b9d6fc;
+  --star-15: #dccafb;
+  --star-16: #e8c9e4;
+}

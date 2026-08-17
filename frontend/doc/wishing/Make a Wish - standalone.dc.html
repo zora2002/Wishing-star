@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#0a2233">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="#0a2233"/>
+    <path d="M100 40 L112 76 L150 80 L122 106 L130 144 L100 124 L70 144 L78 106 L50 80 L88 76 Z" fill="#ffe9b8"/>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/jf-openhuninn-1.1@1.1/font/jf-openhuninn-1.1.css');
+@keyframes drift {
+  0% { transform: translateX(0); opacity: 0; }
+  8% { opacity: 0.9; }
+  92% { opacity: 0.9; }
+  100% { transform: translateX(-620px); opacity: 0; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+@keyframes burstStar {
+  0% { opacity: 0; stroke-dashoffset: 1; fill-opacity: 0; transform: scale(0.4); filter: drop-shadow(0 0 0 rgba(255,233,184,0)); }
+  15% { opacity: 1; stroke-dashoffset: 1; transform: scale(0.6); }
+  55% { stroke-dashoffset: 0; opacity: 1; fill-opacity: 0; transform: scale(1); }
+  75% { filter: drop-shadow(0 0 18px rgba(255,233,184,1)); fill-opacity: 0.9; transform: scale(1.25); }
+  100% { opacity: 0; fill-opacity: 0.9; transform: scale(1.5); filter: drop-shadow(0 0 0 rgba(255,233,184,0)); }
+}
+body { margin: 0; }
+</style>
+</helmet>
+<div style="min-height: 100vh; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; background: radial-gradient(ellipse at 50% 0%, #133447 0%, #04121a 70%); font-family: 'jf-openhuninn-1.1', sans-serif; box-sizing: border-box; padding: 24px; padding-right: 0px; padding-left: 0px; padding-top: 100px; padding-bottom: 100px">
+  <div style="width: 100%; max-width: 640px; max-height: 400px; aspect-ratio: 5/4; background: #f4efe6; padding: 0; overflow: hidden">
+
+    <div style="position:relative; width:100%; height:100%; overflow:hidden; background:linear-gradient(180deg,#0a2233 0%, #0e2a36 55%, #14384a 100%);">
+
+      <svg width="9%" viewBox="0 0 100 100" style="position:absolute; left:6%; top:8%; overflow:visible;">
+        <circle cx="50" cy="50" r="42" fill="#f6dd8e" opacity="0.95"></circle>
+        <circle cx="66" cy="38" r="34" fill="#0a2233" opacity="0.55"></circle>
+      </svg>
+
+      <sc-for list="{{ stars }}" as="s" hint-placeholder-count="18">
+        <div style="position:absolute; left:{{ s.x }}%; top:{{ s.y }}%; width:{{ s.size }}px; height:{{ s.size }}px; border-radius:50%; background:#fff; animation:twinkle {{ s.dur }}s ease-in-out infinite; animation-delay:{{ s.delay }}s;"></div>
+      </sc-for>
+
+<sc-for list="{{ floaters }}" as="f" hint-placeholder-count="7">
+        <div onMouseEnter="{{ f.onFloaterEnter }}" onMouseLeave="{{ f.onFloaterLeave }}" style="position:absolute; left:{{ f.left }}%; top:{{ f.top }}%; opacity:0.7; cursor:pointer; animation:drift {{ f.dur }}s linear infinite; animation-delay:{{ f.delay }}s;">
+          <svg width="{{ f.size }}" height="{{ f.size }}" viewBox="0 0 24 24" fill="{{ f.color }}" stroke="{{ f.color }}" stroke-linejoin="round" stroke-width="1.5" style="transform:rotate({{ f.rotate }}deg);">
+            <path d="M12 2 L15.53 7.146 L21.51 8.91 L17.71 13.85 L17.88 20.09 L12 18 L6.12 20.09 L6.29 13.85 L2.49 8.91 L8.47 7.146 Z"></path>
+          </svg>
+          <sc-if value="{{ f.showTip }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute; top:50%; left:100%; transform:translateY(-50%); margin-left:-4px; white-space:nowrap; display:flex; align-items:center; height:{{ f.size }}px; background:none; color:#f4efe6; font-family:'jf-openhuninn-1.1', sans-serif; font-size:13px; line-height:1; padding:0 30px 0 14px; pointer-events:none;">{{ f.wish }} — {{ f.name }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+
+      <div style="position:absolute; bottom:0; left:0; right:0; height:58%;">
+        <svg viewBox="0 0 400 130" preserveAspectRatio="none" style="position:absolute; bottom:0; left:0; width:100%; height:100%;">
+          <path d="M0,130 L0,15 L18,15 L18,40 L24,40 L24,33 L30,33 L30,58 L36,58 L36,74 L36,25 L36,70 L58,70 L58,92 L78,92 L78,55 L96,55 L96,35 L118,35 L118,75 L138,68 L138,90 L160,90 L160,45 L182,45 L182,80 L202,80 L202,60 L228,50 L248,50 L248,72 L268,72 L268,30 L286,30 L286,68 L306,68 L306,45 L326,45 L326,85 L344,85 L344,55 L365,55 L365,20 L385,20 L385,60 L400,60 L400,130 Z" fill="#081722" stroke="#081722" stroke-width="4" stroke-linejoin="round"></path>
+          <rect x="25" y="45" width="2" height="2" fill="#d8dde2" opacity="0.6"></rect>
+          <rect x="87" y="65" width="2" height="2" fill="#d8dde2" opacity="0.6"></rect>
+          <rect x="150" y="60" width="2" height="2" fill="#d8dde2" opacity="0.6"></rect>
+          <rect x="238" y="60" width="2" height="2" fill="#d8dde2" opacity="0.6"></rect>
+          <rect x="296" y="45" width="2" height="2" fill="#d8dde2" opacity="0.6"></rect>
+          <rect x="335" y="70" width="2" height="2" fill="#d8dde2" opacity="0.6"></rect>
+          <rect x="393" y="35" width="2" height="2" fill="#d8dde2" opacity="0.6"></rect>
+        </svg>
+        <div style="position:absolute; top:32%; left:10%; width:3px; height:3px; background:#ffdf9c; opacity:0.8;"></div>
+        <div style="position:absolute; top:20%; left:24%; width:3px; height:3px; background:#ffdf9c; opacity:0.6;"></div>
+        <div style="position:absolute; top:45%; left:38%; width:3px; height:3px; background:#ffdf9c; opacity:0.7;"></div>
+        <div style="position:absolute; top:15%; left:55%; width:3px; height:3px; background:#ffdf9c; opacity:0.8;"></div>
+        <div style="position:absolute; top:35%; left:70%; width:3px; height:3px; background:#ffdf9c; opacity:0.6;"></div>
+        <div style="position:absolute; top:12%; left:86%; width:3px; height:3px; background:#ffdf9c; opacity:0.7;"></div>
+      </div>
+
+
+      <sc-if value="{{ animating }}" hint-placeholder-val="{{ false }}">
+        <svg width="70" height="70" viewBox="0 0 24 24" style="position:absolute; top:32%; left:50%; margin:-35px 0 0 -35px; overflow:visible;">
+          <path d="M12 2 L15.53 7.146 L21.51 8.91 L17.71 13.85 L17.88 20.09 L12 18 L6.12 20.09 L6.29 13.85 L2.49 8.91 L8.47 7.146 Z" fill="#ffe9b8" fill-opacity="0" stroke="#ffe9b8" stroke-width="1" stroke-linejoin="round" pathLength="1" style="stroke-dasharray:1; transform-origin:center; animation:burstStar 2.4s ease-out forwards;"></path>
+        </svg>
+      </sc-if>
+
+    </div>
+
+  </div>
+
+  <div style="margin-top: 22px; width: min(90vw, 120vh); max-width: 340px; background: #fdf3c7; padding: 20px 22px 16px; box-shadow: 0 6px 16px rgba(0,0,0,0.35); transform: rotate(-1.5deg); font-family: 'jf-openhuninn-1.1', sans-serif; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; padding-top: 40px; padding-right: 32px; padding-left: 32px; padding-bottom: 40px">
+    <input type="text" placeholder="make a wish" value="{{ name }}" onChange="{{ onNameChange }}" style="background: transparent; border: none; border-bottom: 1.5px solid rgba(58,47,26,0.35); padding: 0 0 4px; font-family: 'jf-openhuninn-1.1', sans-serif; font-size: 14px; color: #3a2f1a; outline: none; box-sizing: border-box; width: 100%; text-align: center">
+    <div style="display: flex; gap: 8px; align-items: center; justify-content: center; height: 26px">
+      <input type="text" placeholder="name" value="{{ wish }}" onChange="{{ onWishChange }}" onKeyDown="{{ onKeyDown }}" style="flex: 0 0 30%; min-width: 0; text-align: center; background: transparent; border: none; border-bottom: 1.5px solid rgba(58,47,26,0.35); padding: 0 0 4px; font-family: 'jf-openhuninn-1.1', sans-serif; font-size: 14px; color: #3a2f1a; outline: none; box-sizing: border-box; margin-left: 36px; height: 26px">
+      <button onClick="{{ onSubmit }}" aria-label="{{ buttonLabel }}" style="position:relative; flex:0 0 auto; width:36px; height:36px; display:flex; align-items:center; justify-content:center; border:none; background:transparent; cursor:pointer; box-sizing:border-box; overflow:visible;">
+        
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b8860b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 3 L3 10.5 L10.5 13.5 L13.5 21 Z"></path>
+          <path d="M21 3 L10.5 13.5"></path>
+        </svg></button>
+    </div>
+    
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:640,&quot;height&quot;:640},&quot;buttonLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;make a wish&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { name: '', wish: '', sent: false, stars: null, floaters: null };
+
+  componentDidMount() {
+    const stars = Array.from({ length: 18 }).map(() => ({
+      x: 6 + Math.random() * 88,
+      y: 6 + Math.random() * 45,
+      size: 1 + Math.random() * 2,
+      dur: 2 + Math.random() * 3,
+      delay: Math.random() * 3,
+    }));
+    const starColors = ['#fac2dc', '#fbc2c1', '#fbc6ae', '#f1df89', '#e2dd8d', '#ebd07b', '#ecd09e', '#e7dcbd', '#dcd4bb', '#bce1b3', '#a5e4cd', '#aedfe1', '#b3dbef', '#b9d6fc', '#dccafb', '#e8c9e4'];
+    const sampleWishes = [
+      { wish: 'travel the world', name: 'Mei' },
+      { wish: 'pass the exam', name: 'Jun' },
+      { wish: 'find peace', name: 'Ren' },
+      { wish: 'get well soon', name: 'Ling' },
+      { wish: 'be brave', name: 'Kai' },
+      { wish: 'see you again', name: 'Yu' },
+      { wish: 'good health', name: 'Hana' },
+    ];
+    const floaters = Array.from({ length: 7 }).map((_, i) => ({
+      left: 80 + Math.random() * 40,
+      top: 8 + Math.random() * 42,
+      size: 14 + Math.random() * 12,
+      rotate: Math.random() * 360,
+      dur: 14 + Math.random() * 10,
+      delay: Math.random() * -20,
+      color: starColors[Math.floor(Math.random() * starColors.length)],
+      wish: sampleWishes[i % sampleWishes.length].wish,
+      name: sampleWishes[i % sampleWishes.length].name,
+    }));
+    this.setState({ stars, floaters, hoverIndex: null });
+  }
+
+  submit = () => {
+    if (!this.state.wish.trim()) return;
+    const lastWish = (this.state.name.trim() ? this.state.name.trim() + '：' : '') + this.state.wish.trim();
+    this.setState({ animating: true, lastWish });
+    setTimeout(() => this.setState({ animating: false, wish: '' }), 2400);
+  };
+
+  renderVals() {
+    return {
+      name: this.state.name,
+      wish: this.state.wish,
+      animating: this.state.animating,
+      stars: this.state.stars || [],
+      floaters: (this.state.floaters || []).map((f, i) => ({
+        ...f,
+        showTip: this.state.hoverIndex === i,
+        onFloaterEnter: () => this.setState({ hoverIndex: i }),
+        onFloaterLeave: () => this.setState({ hoverIndex: null }),
+      })),
+      buttonLabel: this.props.buttonLabel ?? 'make a wish',
+      lastWish: this.state.lastWish,
+      onNameChange: (e) => this.setState({ name: e.target.value }),
+      onWishChange: (e) => this.setState({ wish: e.target.value }),
+      onKeyDown: (e) => { if (e.key === 'Enter') this.submit(); },
+      onSubmit: this.submit,
+    };
+  }
+}
+
+</script>
+</body>
+</html>

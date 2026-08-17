@@ -1,0 +1,13 @@
+:root {
+  --note-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  --note-tilt: -1.5deg;
+  --radius-none: 0px; /* every surface in this design is hard-cornered */
+
+  --ease-twinkle: ease-in-out;
+  --dur-twinkle-min: 2s;
+  --dur-twinkle-max: 5s;
+  --dur-drift-min: 14s;
+  --dur-drift-max: 24s;
+  --dur-burst: 2.4s;
+  --ease-burst: ease-out;
+}

@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/jf-openhuninn-1.1@1.1/font/jf-openhuninn-1.1.css');
+
+:root {
+  --font-body: 'jf-openhuninn-1.1', sans-serif; /* hand-written note voice, used for all UI text (CJK + Latin) */
+  --font-display-alt: 'Space Grotesk', sans-serif; /* loaded but currently unused in the live layout */
+  --font-serif-alt: 'Fraunces', serif; /* loaded but currently unused in the live layout */
+
+  --text-input: 14px;
+  --text-tooltip: 13px;
+}
